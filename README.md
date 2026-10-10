@@ -2,8 +2,6 @@
 
 # portfolio
 
-Personal site for [dylanelens.com](https://dylanelens.com). Created in [T3 Code](https://t3.codes).
-
 TanStack Start, shadcn/ui (lyra preset on Base UI), Tailwind CSS 4, deployed to Vercel through Nitro. Every page is prerendered at build time.
 
 ## Develop
