@@ -1,5 +1,7 @@
 export const locales = ["en", "nl"] as const
+
 export type Locale = (typeof locales)[number]
+
 export const defaultLocale: Locale = "en"
 
 export const sectionIds = [
@@ -10,6 +12,7 @@ export const sectionIds = [
   "projects",
   "contact",
 ] as const
+
 export type SectionId = (typeof sectionIds)[number]
 
 export const jobIds = [
@@ -18,6 +21,7 @@ export const jobIds = [
   "pixelmonsters",
   "productsup",
 ] as const
+
 export type JobId = (typeof jobIds)[number]
 
 export const projectIds = [
@@ -30,6 +34,7 @@ export const projectIds = [
   "smsCuracao",
   "madurosons",
 ] as const
+
 export type ProjectId = (typeof projectIds)[number]
 
 export interface JobCopy {

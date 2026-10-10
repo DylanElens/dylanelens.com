@@ -16,13 +16,17 @@ export interface ScrollSpy<TId extends string> {
 function readPosition(): ScrollPosition {
   const { scrollHeight, clientHeight } = document.documentElement
   const max = scrollHeight - clientHeight
+
   if (max <= 0 || window.scrollY <= 0) return "top"
+
   if (isAtBottom()) return "bottom"
+
   return Math.round((window.scrollY / max) * 100)
 }
 
 function isAtBottom() {
   const { scrollHeight, clientHeight } = document.documentElement
+
   return (
     scrollHeight > clientHeight &&
     window.scrollY >= scrollHeight - clientHeight - 1
@@ -37,8 +41,10 @@ function currentSectionIndex(ids: ReadonlyArray<string>): number {
   let current = -1
   ids.forEach((id, index) => {
     const top = document.getElementById(id)?.getBoundingClientRect().top
+
     if (top !== undefined && top <= SCROLL_OFFSET_PX) current = index
   })
+
   return current
 }
 
@@ -52,6 +58,7 @@ export function useScrollSpy<TId extends string>(
 
   useEffect(() => {
     let frame = 0
+
     const update = () => {
       frame = 0
       const active = ids[currentSectionIndex(ids)] ?? null
@@ -62,6 +69,7 @@ export function useScrollSpy<TId extends string>(
           : { active, position }
       )
     }
+
     const schedule = () => {
       if (frame === 0) frame = requestAnimationFrame(update)
     }
@@ -69,6 +77,7 @@ export function useScrollSpy<TId extends string>(
     update()
     window.addEventListener("scroll", schedule, { passive: true })
     window.addEventListener("resize", schedule)
+
     return () => {
       cancelAnimationFrame(frame)
       window.removeEventListener("scroll", schedule)

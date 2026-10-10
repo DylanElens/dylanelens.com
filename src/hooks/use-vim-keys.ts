@@ -17,20 +17,26 @@ function isTyping(target: EventTarget | null) {
 // reach the header on a tall screen.
 function scrollStops(ids: ReadonlyArray<string>) {
   const max = document.documentElement.scrollHeight - window.innerHeight
+
   const starts = ids.flatMap((id) => {
     const top = document.getElementById(id)?.getBoundingClientRect().top
+
     if (top === undefined) return []
+
     return [Math.min(top + window.scrollY - HEADER_HEIGHT_PX, max)]
   })
+
   return [0, ...starts, max]
 }
 
 function stepSection(ids: ReadonlyArray<string>, direction: 1 | -1) {
   const stops = scrollStops(ids)
+
   const target =
     direction === 1
       ? stops.find((stop) => stop > window.scrollY + 1)
       : stops.reverse().find((stop) => stop < window.scrollY - 1)
+
   if (target !== undefined) window.scrollTo({ top: target })
 }
 
@@ -45,6 +51,7 @@ export function useVimKeys(
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.metaKey || event.ctrlKey || event.altKey) return
+
       if (isTyping(event.target)) return
 
       switch (event.key) {
@@ -61,6 +68,7 @@ export function useVimKeys(
           } else {
             lastG = event.timeStamp
           }
+
           break
         case "G":
           window.scrollTo({ top: document.documentElement.scrollHeight })
@@ -75,6 +83,7 @@ export function useVimKeys(
     }
 
     window.addEventListener("keydown", onKeyDown)
+
     return () => window.removeEventListener("keydown", onKeyDown)
   }, [ids, onToggleLocale])
 }

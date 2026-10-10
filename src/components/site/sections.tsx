@@ -97,6 +97,7 @@ export function Agents({ content }: { content: Content }) {
 // A timeline: one node per role, newest first.
 export function Experience({ content }: { content: Content }) {
   const { education } = content.experience
+
   const entries = [
     ...jobIds.map((id) => ({
       id,

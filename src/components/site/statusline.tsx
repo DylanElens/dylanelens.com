@@ -4,7 +4,9 @@ import { Kbd } from "@/components/ui/kbd"
 
 function formatPosition(position: ScrollPosition, ui: Content["ui"]) {
   if (position === "top") return ui.top
+
   if (position === "bottom") return ui.bottom
+
   return `${position}%`
 }
 

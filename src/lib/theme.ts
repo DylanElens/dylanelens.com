@@ -6,6 +6,7 @@ export const themeScript = `(function(){try{if(localStorage.getItem("${STORAGE_K
 
 export function toggleTheme() {
   const dark = document.documentElement.classList.toggle("dark")
+
   try {
     localStorage.setItem(STORAGE_KEY, dark ? "dark" : "light")
   } catch {

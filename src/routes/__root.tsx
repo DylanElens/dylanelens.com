@@ -43,6 +43,7 @@ export const Route = createRootRoute({
 
 function useLocale() {
   const { locale } = useParams({ strict: false })
+
   return resolveLocale(locale)
 }
 

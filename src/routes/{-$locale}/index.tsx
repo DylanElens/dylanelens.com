@@ -35,10 +35,12 @@ import { useVimKeys } from "@/hooks/use-vim-keys"
 export const Route = createFileRoute("/{-$locale}/")({
   beforeLoad: ({ params }) => {
     if (params.locale === undefined) return
+
     // The default locale has no prefix, so "/en" is just "/".
     if (params.locale === defaultLocale) {
       throw redirect({ to: "/{-$locale}", params: { locale: undefined } })
     }
+
     if (!isLocale(params.locale)) throw notFound()
   },
   head: ({ params }) => {
@@ -79,6 +81,8 @@ const sections: Record<SectionId, React.ComponentType<{ content: Content }>> = {
   contact: Contact,
 }
 
+const year = new Date().getFullYear()
+
 function Home() {
   const locale = resolveLocale(Route.useParams().locale)
   const content = getContent(locale)
@@ -93,6 +97,7 @@ function Home() {
       resetScroll: false,
     })
   }, [locale, navigate])
+
   useVimKeys(sectionIds, toggleLocale)
 
   return (
@@ -119,7 +124,7 @@ function Home() {
       <footer className="border-t pb-7">
         <div className="flex flex-wrap items-center justify-between gap-2 px-5 py-4 text-xs text-muted-foreground md:px-8">
           <span>
-            © {new Date().getFullYear()} {site.name}
+            © {year} {site.name}
           </span>
           <span>{content.ui.footer}</span>
         </div>

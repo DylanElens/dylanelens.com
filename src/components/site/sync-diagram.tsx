@@ -4,10 +4,14 @@ import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
 const OUTBOX_CAPACITY = 8
+
 const SEND_DELAY_MS = 150
+
 // Keep in sync with --animate-packet in styles.css.
 const TRANSIT_MS = 500
+
 const LOG_LINES = 4
+
 const INITIAL_ROWS = 3
 
 // A visit runs from check-in to check-out. The app is offline for all of it
@@ -53,6 +57,7 @@ function withLog(state: SyncState, ...events: Array<LogEvent>): SyncState {
     ...event,
     seq: state.logSeq + index,
   }))
+
   return {
     ...state,
     log: [...state.log, ...entries].slice(-LOG_LINES),
@@ -64,13 +69,17 @@ function reduce(state: SyncState, action: SyncAction): SyncState {
   switch (action.type) {
     case "check-in": {
       if (state.phase !== "idle") return state
+
       return withLog({ ...state, phase: "visit" }, { kind: "checkIn" })
     }
+
     // Writes only ever touch the local store; the network is not on this path.
     case "write": {
       if (state.phase !== "visit") return state
+
       if (state.outbox.length >= OUTBOX_CAPACITY) return state
       const op = state.nextOp
+
       return withLog(
         {
           ...state,
@@ -81,31 +90,42 @@ function reduce(state: SyncState, action: SyncAction): SyncState {
         { kind: "write", op }
       )
     }
+
     case "check-out": {
       if (state.phase !== "visit") return state
+
       if (state.outbox.length === 0) {
         return withLog({ ...state, phase: "idle" }, { kind: "checkOutEmpty" })
       }
+
       return withLog(
         { ...state, phase: "syncing" },
         { kind: "checkOut", count: state.outbox.length }
       )
     }
+
     case "send": {
       if (state.phase !== "syncing" || state.inFlight !== null) return state
+
       if (state.outbox.length === 0) return state
       const [op, ...rest] = state.outbox
+
       return { ...state, inFlight: op, outbox: rest }
     }
+
     case "ack": {
       if (state.inFlight === null) return state
+
       const acked = {
         ...state,
         inFlight: null,
         serverRows: state.serverRows + 1,
       }
+
       const event = { kind: "ack", op: state.inFlight } as const
+
       if (state.outbox.length > 0) return withLog(acked, event)
+
       return withLog({ ...acked, phase: "idle" }, event, { kind: "done" })
     }
   }
@@ -137,15 +157,18 @@ export function SyncDiagram({ copy }: { copy: DiagramCopy }) {
 
   const readyToSend =
     phase === "syncing" && inFlight === null && outbox.length > 0
+
   useEffect(() => {
     if (!readyToSend) return
     const timer = setTimeout(() => dispatch({ type: "send" }), SEND_DELAY_MS)
+
     return () => clearTimeout(timer)
   }, [readyToSend])
 
   useEffect(() => {
     if (inFlight === null) return
     const timer = setTimeout(() => dispatch({ type: "ack" }), TRANSIT_MS)
+
     return () => clearTimeout(timer)
   }, [inFlight])
 

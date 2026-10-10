@@ -14,6 +14,7 @@ const MARK = [
   "#...#..@@@",
   ".####..@@@",
 ]
+
 const CELL = 10
 
 const swatches = [
