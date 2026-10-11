@@ -1,4 +1,4 @@
-import type { Content, Locale, SectionId } from "@/content"
+import type { Content, Locale } from "@/content"
 import type { ScrollPosition } from "@/hooks/use-scroll-spy"
 import { Kbd } from "@/components/ui/kbd"
 
@@ -15,12 +15,14 @@ function formatPosition(position: ScrollPosition, ui: Content["ui"]) {
 export function Statusline({
   locale,
   content,
+  path,
   active,
   position,
 }: {
   locale: Locale
   content: Content
-  active: SectionId | null
+  path: string
+  active: string | null
   position: ScrollPosition
 }) {
   return (
@@ -29,8 +31,12 @@ export function Statusline({
         NORMAL
       </span>
       <span className="flex min-w-0 items-center truncate px-2.5 text-muted-foreground">
-        dylanelens.com
-        {active && <span className="text-foreground">/#{active}</span>}
+        dylanelens.com{path}
+        {active && (
+          <span className="text-foreground">
+            {path === "" && "/"}#{active}
+          </span>
+        )}
       </span>
 
       <div

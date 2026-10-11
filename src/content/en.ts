@@ -183,6 +183,15 @@ export const en = {
     lead: "Say hi.",
     body: "Always up for talking about sync engines, agents or TypeScript.",
   },
+  blog: {
+    nav: "blog",
+    title: "Blog · Dylan Elens",
+    heading: "Blog",
+    description: "Notes on how things work, with examples you can run.",
+    lead: "Notes on how things work. The examples are live, so you can poke at them.",
+    back: "all posts",
+    reset: "reset",
+  },
   ui: {
     skipToContent: "Skip to content",
     switchLanguage: "Language",

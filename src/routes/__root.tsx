@@ -3,11 +3,11 @@ import {
   Link,
   Scripts,
   createRootRoute,
-  useParams,
 } from "@tanstack/react-router"
 
 import appCss from "../styles.css?url"
-import { getContent, localeParam, resolveLocale, site } from "@/content"
+import { getContent, localeParam, site } from "@/content"
+import { useLocale } from "@/hooks/use-locale"
 import { themeScript } from "@/lib/theme"
 
 export const Route = createRootRoute({
@@ -40,12 +40,6 @@ export const Route = createRootRoute({
   notFoundComponent: NotFound,
   shellComponent: RootDocument,
 })
-
-function useLocale() {
-  const { locale } = useParams({ strict: false })
-
-  return resolveLocale(locale)
-}
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   const locale = useLocale()

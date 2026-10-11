@@ -114,6 +114,15 @@ export interface Content {
     lead: string
     body: string
   }
+  blog: {
+    nav: string
+    title: string
+    heading: string
+    description: string
+    lead: string
+    back: string
+    reset: string
+  }
   ui: {
     skipToContent: string
     switchLanguage: string

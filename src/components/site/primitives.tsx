@@ -1,4 +1,3 @@
-import type { SectionId } from "@/content"
 import { cn } from "@/lib/utils"
 
 export function Prompt({ children }: { children?: React.ReactNode }) {
@@ -25,7 +24,7 @@ export function Section({
   label,
   children,
 }: {
-  id: SectionId
+  id: string
   index: number
   label: string
   children: React.ReactNode

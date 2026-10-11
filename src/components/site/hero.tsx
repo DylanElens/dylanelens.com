@@ -1,8 +1,8 @@
+import { PixelMark } from "./pixel-mark"
 import { Cursor, Prompt } from "./primitives"
 import type { Content } from "@/content"
 
-// The mark, drawn the way a fetch tool draws a distro logo: one block per
-// cell. "#" is foreground, "@" is the cursor.
+// The site's mark: a "d" and a cursor.
 const MARK = [
   "....#.....",
   "....#.....",
@@ -14,8 +14,6 @@ const MARK = [
   "#...#..@@@",
   ".####..@@@",
 ]
-
-const CELL = 10
 
 const swatches = [
   "bg-background",
@@ -39,7 +37,7 @@ export function Hero({ content }: { content: Content }) {
       </p>
 
       <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:gap-10">
-        <Mark />
+        <PixelMark rows={MARK} className="w-32 md:w-40" />
         <div className="flex flex-col gap-3">
           <p>
             <span className="text-primary">dylan</span>
@@ -73,30 +71,5 @@ export function Hero({ content }: { content: Content }) {
         </Prompt>
       </p>
     </div>
-  )
-}
-
-function Mark() {
-  return (
-    <svg
-      aria-hidden
-      viewBox={`0 0 ${MARK[0].length * CELL} ${MARK.length * CELL}`}
-      className="w-32 shrink-0 md:w-40"
-    >
-      {MARK.flatMap((row, y) =>
-        [...row].map((cell, x) =>
-          cell === "." ? null : (
-            <rect
-              key={`${x}-${y}`}
-              x={x * CELL}
-              y={y * CELL}
-              width={CELL - 1}
-              height={CELL - 1}
-              className={cell === "@" ? "fill-primary" : "fill-foreground"}
-            />
-          )
-        )
-      )}
-    </svg>
   )
 }

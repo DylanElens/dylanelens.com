@@ -184,6 +184,16 @@ export const nl = {
     lead: "Zeg hallo.",
     body: "Ik praat altijd graag over sync engines, agents of TypeScript.",
   },
+  blog: {
+    nav: "blog",
+    title: "Blog · Dylan Elens",
+    heading: "Blog",
+    description:
+      "Notities over hoe dingen werken, met voorbeelden die je zelf kunt draaien.",
+    lead: "Notities over hoe dingen werken. De voorbeelden draaien echt, dus je kunt ermee spelen.",
+    back: "alle posts",
+    reset: "reset",
+  },
   ui: {
     skipToContent: "Ga naar de inhoud",
     switchLanguage: "Taal",

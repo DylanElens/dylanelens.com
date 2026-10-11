@@ -9,51 +9,129 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as Char123LocaleChar125RouteRouteImport } from './routes/{-$locale}/route'
 import { Route as Char123LocaleChar125IndexRouteImport } from './routes/{-$locale}/index'
+import { Route as Char123LocaleChar125BlogIndexRouteImport } from './routes/{-$locale}/blog/index'
+import { Route as Char123LocaleChar125BlogReactRerendersRouteImport } from './routes/{-$locale}/blog/react-rerenders'
 
+const Char123LocaleChar125RouteRoute =
+  Char123LocaleChar125RouteRouteImport.update({
+    id: '/{-$locale}',
+    path: '/{-$locale}',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const Char123LocaleChar125IndexRoute =
   Char123LocaleChar125IndexRouteImport.update({
-    id: '/{-$locale}/',
-    path: '/{-$locale}/',
-    getParentRoute: () => rootRouteImport,
+    id: '/',
+    path: '/',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
+  } as any)
+const Char123LocaleChar125BlogIndexRoute =
+  Char123LocaleChar125BlogIndexRouteImport.update({
+    id: '/blog/',
+    path: '/blog/',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
+  } as any)
+const Char123LocaleChar125BlogReactRerendersRoute =
+  Char123LocaleChar125BlogReactRerendersRouteImport.update({
+    id: '/blog/react-rerenders',
+    path: '/blog/react-rerenders',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 
 export interface FileRoutesByFullPath {
+  '/{-$locale}': typeof Char123LocaleChar125RouteRouteWithChildren
   '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
+  '/{-$locale}/blog/react-rerenders': typeof Char123LocaleChar125BlogReactRerendersRoute
+  '/{-$locale}/blog/': typeof Char123LocaleChar125BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/{-$locale}': typeof Char123LocaleChar125IndexRoute
+  '/{-$locale}/blog/react-rerenders': typeof Char123LocaleChar125BlogReactRerendersRoute
+  '/{-$locale}/blog': typeof Char123LocaleChar125BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/{-$locale}': typeof Char123LocaleChar125RouteRouteWithChildren
   '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
+  '/{-$locale}/blog/react-rerenders': typeof Char123LocaleChar125BlogReactRerendersRoute
+  '/{-$locale}/blog/': typeof Char123LocaleChar125BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/{-$locale}/'
+  fullPaths:
+    | '/{-$locale}'
+    | '/{-$locale}/'
+    | '/{-$locale}/blog/react-rerenders'
+    | '/{-$locale}/blog/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/{-$locale}'
-  id: '__root__' | '/{-$locale}/'
+  to: '/{-$locale}' | '/{-$locale}/blog/react-rerenders' | '/{-$locale}/blog'
+  id:
+    | '__root__'
+    | '/{-$locale}'
+    | '/{-$locale}/'
+    | '/{-$locale}/blog/react-rerenders'
+    | '/{-$locale}/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  Char123LocaleChar125IndexRoute: typeof Char123LocaleChar125IndexRoute
+  Char123LocaleChar125RouteRoute: typeof Char123LocaleChar125RouteRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/{-$locale}': {
+      id: '/{-$locale}'
+      path: '/{-$locale}'
+      fullPath: '/{-$locale}'
+      preLoaderRoute: typeof Char123LocaleChar125RouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/{-$locale}/': {
       id: '/{-$locale}/'
-      path: '/{-$locale}'
+      path: '/'
       fullPath: '/{-$locale}/'
       preLoaderRoute: typeof Char123LocaleChar125IndexRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
+    }
+    '/{-$locale}/blog/': {
+      id: '/{-$locale}/blog/'
+      path: '/blog'
+      fullPath: '/{-$locale}/blog/'
+      preLoaderRoute: typeof Char123LocaleChar125BlogIndexRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
+    }
+    '/{-$locale}/blog/react-rerenders': {
+      id: '/{-$locale}/blog/react-rerenders'
+      path: '/blog/react-rerenders'
+      fullPath: '/{-$locale}/blog/react-rerenders'
+      preLoaderRoute: typeof Char123LocaleChar125BlogReactRerendersRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
     }
   }
 }
 
+interface Char123LocaleChar125RouteRouteChildren {
+  Char123LocaleChar125IndexRoute: typeof Char123LocaleChar125IndexRoute
+  Char123LocaleChar125BlogReactRerendersRoute: typeof Char123LocaleChar125BlogReactRerendersRoute
+  Char123LocaleChar125BlogIndexRoute: typeof Char123LocaleChar125BlogIndexRoute
+}
+
+const Char123LocaleChar125RouteRouteChildren: Char123LocaleChar125RouteRouteChildren =
+  {
+    Char123LocaleChar125IndexRoute: Char123LocaleChar125IndexRoute,
+    Char123LocaleChar125BlogReactRerendersRoute:
+      Char123LocaleChar125BlogReactRerendersRoute,
+    Char123LocaleChar125BlogIndexRoute: Char123LocaleChar125BlogIndexRoute,
+  }
+
+const Char123LocaleChar125RouteRouteWithChildren =
+  Char123LocaleChar125RouteRoute._addFileChildren(
+    Char123LocaleChar125RouteRouteChildren,
+  )
+
 const rootRouteChildren: RootRouteChildren = {
-  Char123LocaleChar125IndexRoute: Char123LocaleChar125IndexRoute,
+  Char123LocaleChar125RouteRoute: Char123LocaleChar125RouteRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -22,8 +22,11 @@ export function localeParam(locale: Locale): Locale | undefined {
   return locale === defaultLocale ? undefined : locale
 }
 
-export function localePath(locale: Locale): string {
-  return locale === defaultLocale ? "/" : `/${locale}`
+// `path` is the page without its locale prefix: "" for home, "/blog" for the blog.
+export function localePath(locale: Locale, path = ""): string {
+  const prefix = locale === defaultLocale ? "" : `/${locale}`
+
+  return `${prefix}${path}` || "/"
 }
 
 export * from "./types"
