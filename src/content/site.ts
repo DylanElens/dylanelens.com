@@ -21,6 +21,7 @@ export const site = {
 
 export const jobs: Record<JobId, { company: string; href?: string }> = {
   msml: { company: "MSML", href: "https://www.msml.nl/" },
+  verbelco: { company: "Verbelco", href: "https://www.verbelco.nl/" },
   dearhealth: { company: "DearHEALTH", href: "https://dearhealth.com/" },
   pixelmonsters: { company: "Pixel Monsters", href: "https://motorroutes.nl/" },
   productsup: { company: "Productsup", href: "https://www.productsup.com/" },

@@ -17,6 +17,7 @@ export type SectionId = (typeof sectionIds)[number]
 
 export const jobIds = [
   "msml",
+  "verbelco",
   "dearhealth",
   "pixelmonsters",
   "productsup",

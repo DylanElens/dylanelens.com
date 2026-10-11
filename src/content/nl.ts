@@ -115,6 +115,14 @@ export const nl = {
           "Werk aan agentic AI-initiatieven binnen het hele bedrijf.",
         ],
       },
+      verbelco: {
+        role: "Full Stack Software Engineer",
+        period: "mei 2024 – dec 2024",
+        highlights: [
+          "Een bijbaan die voortkwam uit het GiPHouse-project op de universiteit.",
+          "Hun legacy PHP-applicatie gemigreerd naar Laravel, React en TypeScript.",
+        ],
+      },
       dearhealth: {
         role: "Frontend Developer",
         period: "jul 2023 – jan 2025",
