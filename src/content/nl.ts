@@ -50,7 +50,8 @@ export const nl = {
     kicker: "MSML · SaaS · field sales",
     paragraphs: [
       "Het field sales platform van MSML: planning, uitvoering en analyse in één product. We hebben het als team vanaf nul gebouwd.",
-      "Mijn deel was de offline-first sync engine tussen de tablet-app en de backend. Een vertegenwoordiger checkt in bij een winkel en werkt vanaf dat moment offline. Bij het uitchecken synchroniseert de engine alles.",
+      "Ik heb end-to-end aan de features gewerkt, in de backend en op de tablet. Ik heb de componentbibliotheek van de tablet-app opgezet, een interactieve drag-and-drop-kalender voor handmatige planning gebouwd, en de workflow engine die bepaalt welke uitvoeringen plaatsvinden, hoeveel, en met welke intervallen.",
+      "Het deel hieronder is de offline-first sync engine tussen de tablet-app en de backend. Een vertegenwoordiger checkt in bij een winkel en werkt vanaf dat moment offline. Bij het uitchecken synchroniseert de engine alles.",
     ],
     siteLabel: "frontline-app.com",
     launchLabel: "lanceringspost",
@@ -111,7 +112,8 @@ export const nl = {
         period: "feb 2025 – nu",
         highlights: [
           "Frontline, ons field sales platform, met het team vanaf nul gebouwd.",
-          "De offline-first sync engine gebouwd: offline vanaf het inchecken, gesynchroniseerd bij het uitchecken.",
+          "End-to-end aan de features gewerkt, in de backend en de tablet-app.",
+          "De offline-first sync engine en de workflow engine gebouwd.",
           "Werk aan agentic AI-initiatieven binnen het hele bedrijf.",
         ],
       },
