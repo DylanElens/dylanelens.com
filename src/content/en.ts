@@ -120,7 +120,7 @@ export const en = {
         period: "may 2024 – dec 2024",
         highlights: [
           "A side job that followed from the GiPHouse project at university.",
-          "Migrated their legacy PHP application to Laravel, React and TypeScript.",
+          "Migrated WaterWeb, their legacy PHP application, to Laravel, React and TypeScript.",
         ],
       },
       dearhealth: {

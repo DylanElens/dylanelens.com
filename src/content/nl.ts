@@ -120,7 +120,7 @@ export const nl = {
         period: "mei 2024 – dec 2024",
         highlights: [
           "Een bijbaan die voortkwam uit het GiPHouse-project op de universiteit.",
-          "Hun legacy PHP-applicatie gemigreerd naar Laravel, React en TypeScript.",
+          "WaterWeb, hun legacy PHP-applicatie, gemigreerd naar Laravel, React en TypeScript.",
         ],
       },
       dearhealth: {
