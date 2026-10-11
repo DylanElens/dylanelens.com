@@ -45,6 +45,7 @@
     --color-code-keyword: var(--code-keyword);
     --color-code-name: var(--code-name);
     --color-code-string: var(--code-string);
+    --color-code-property: var(--code-property);
     --radius-sm: 0;
     --radius-md: 0;
     --radius-lg: 0;
@@ -119,10 +120,12 @@
     --sidebar-accent-foreground: oklch(0.21 0.008 260);
     --sidebar-border: oklch(0.21 0.008 260 / 14%);
     --sidebar-ring: oklch(0.52 0.15 50);
-    /* Syntax in code samples. All cool, so the accent stays the one warm colour. */
-    --code-keyword: oklch(0.45 0.13 275);
-    --code-name: oklch(0.45 0.09 225);
-    --code-string: oklch(0.45 0.09 160);
+    /* Syntax in code samples: gruvbox, without its yellow and orange, which
+       sit too close to the accent. */
+    --code-keyword: #9d0006;
+    --code-name: #427b58;
+    --code-string: #79740e;
+    --code-property: #076678;
 }
 
 /* Ink: the dark theme, and the default. */
@@ -154,9 +157,10 @@
     --sidebar-accent-foreground: oklch(0.93 0.006 90);
     --sidebar-border: oklch(1 0 0 / 11%);
     --sidebar-ring: oklch(0.82 0.15 78);
-    --code-keyword: oklch(0.76 0.09 275);
-    --code-name: oklch(0.82 0.07 215);
-    --code-string: oklch(0.82 0.08 160);
+    --code-keyword: #fb4934;
+    --code-name: #8ec07c;
+    --code-string: #b8bb26;
+    --code-property: #83a598;
 }
 
 @layer base {

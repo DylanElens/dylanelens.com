@@ -10,13 +10,14 @@ const MARK = /\s*\/\/!$/
 // Samples are JavaScript and JSX. The preset takes no options of its own.
 const javascript = { tokenize: (code: string) => tokenize(code, undefined) }
 
-// The syntax colours are all cool, like the ink, so the accent stays the one
-// warm colour on the page. Punctuation and comments step back to grey.
+// The syntax colours are gruvbox, see styles.css. Punctuation and comments
+// step back to grey.
 const TONE: Partial<Record<TokenType, string>> = {
   keyword: "text-code-keyword",
   entity: "text-code-name",
   class: "text-code-name",
   string: "text-code-string",
+  property: "text-code-property",
   sign: "text-muted-foreground",
   comment: "text-muted-foreground",
 }
