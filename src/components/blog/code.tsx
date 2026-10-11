@@ -10,15 +10,15 @@ const MARK = /\s*\/\/!$/
 // Samples are JavaScript and JSX. The preset takes no options of its own.
 const javascript = { tokenize: (code: string) => tokenize(code, undefined) }
 
-// Syntax is told apart by weight of grey, never by hue: names stay at full
-// strength, keywords and literals step back, punctuation and comments step
-// back further. Opacity, so it works on a marked line and a dimmed one alike.
+// The syntax colours are all cool, like the ink, so the accent stays the one
+// warm colour on the page. Punctuation and comments step back to grey.
 const TONE: Partial<Record<TokenType, string>> = {
-  keyword: "opacity-75",
-  string: "opacity-75",
-  jsxliterals: "opacity-75",
-  sign: "opacity-55",
-  comment: "opacity-55",
+  keyword: "text-code-keyword",
+  entity: "text-code-name",
+  class: "text-code-name",
+  string: "text-code-string",
+  sign: "text-muted-foreground",
+  comment: "text-muted-foreground",
 }
 
 // A code sample. The accent is kept for marked lines, and the rest steps
@@ -58,8 +58,8 @@ export function Code({
             key={line.index}
             className={cn(
               "px-3 sm:px-5",
-              marks[line.index] && "bg-primary/10 text-foreground",
-              focused && !marks[line.index] && "text-muted-foreground"
+              marks[line.index] && "bg-primary/10",
+              focused && !marks[line.index] && "opacity-60"
             )}
           >
             {line.tokens.map((token, index) => (

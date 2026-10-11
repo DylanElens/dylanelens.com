@@ -42,6 +42,9 @@
     --color-background: var(--background);
     /* Lines in diagrams. Opaque, so overlapping lines do not add up. */
     --color-wire: color-mix(in oklch, var(--foreground) 38%, var(--background));
+    --color-code-keyword: var(--code-keyword);
+    --color-code-name: var(--code-name);
+    --color-code-string: var(--code-string);
     --radius-sm: 0;
     --radius-md: 0;
     --radius-lg: 0;
@@ -116,6 +119,10 @@
     --sidebar-accent-foreground: oklch(0.21 0.008 260);
     --sidebar-border: oklch(0.21 0.008 260 / 14%);
     --sidebar-ring: oklch(0.52 0.15 50);
+    /* Syntax in code samples. All cool, so the accent stays the one warm colour. */
+    --code-keyword: oklch(0.45 0.13 275);
+    --code-name: oklch(0.45 0.09 225);
+    --code-string: oklch(0.45 0.09 160);
 }
 
 /* Ink: the dark theme, and the default. */
@@ -147,6 +154,9 @@
     --sidebar-accent-foreground: oklch(0.93 0.006 90);
     --sidebar-border: oklch(1 0 0 / 11%);
     --sidebar-ring: oklch(0.82 0.15 78);
+    --code-keyword: oklch(0.76 0.09 275);
+    --code-name: oklch(0.82 0.07 215);
+    --code-string: oklch(0.82 0.08 160);
 }
 
 @layer base {
