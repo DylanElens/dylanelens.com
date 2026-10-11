@@ -1,3 +1,4 @@
+import { site } from "./site"
 import type { Content } from "./types"
 
 export const en = {
@@ -91,6 +92,7 @@ export const en = {
       {
         key: "thesis",
         body: "My bachelor thesis at Radboud University was about agentic testing.",
+        link: { label: "read the thesis", href: site.thesis },
       },
       {
         key: "at work",

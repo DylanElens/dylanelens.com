@@ -86,7 +86,17 @@ export function Agents({ content }: { content: Content }) {
               className="absolute top-3 left-0 h-px w-5 bg-foreground/30"
             />
             <dt className="text-primary">{item.key}</dt>
-            <dd className="max-w-[68ch]">{item.body}</dd>
+            <dd className="max-w-[68ch]">
+              {item.body}
+              {item.link ? (
+                <>
+                  {" "}
+                  <ExternalLink href={item.link.href}>
+                    {item.link.label}
+                  </ExternalLink>
+                </>
+              ) : null}
+            </dd>
           </div>
         ))}
       </dl>

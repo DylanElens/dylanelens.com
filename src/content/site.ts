@@ -8,6 +8,8 @@ export const site = {
   github: "https://github.com/dylanelens",
   // TODO: confirm the profile slug; the link in the CV is malformed.
   linkedin: "https://www.linkedin.com/in/dylanelens/",
+  thesis:
+    "https://www.cs.ru.nl/bachelors-theses/2025/Dylan_Elens___1051438___An_LLM-Based_End-to-End_Testing_Agent_for_Web_Applications.pdf",
   frontline: {
     site: "https://frontline-app.com/",
     launch:

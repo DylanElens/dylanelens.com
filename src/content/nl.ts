@@ -1,3 +1,4 @@
+import { site } from "./site"
 import type { Content } from "./types"
 
 export const nl = {
@@ -91,6 +92,7 @@ export const nl = {
       {
         key: "scriptie",
         body: "Mijn bachelorscriptie aan de Radboud Universiteit ging over agentic testing.",
+        link: { label: "lees de scriptie", href: site.thesis },
       },
       {
         key: "op het werk",

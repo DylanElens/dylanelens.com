@@ -91,7 +91,11 @@ export interface Content {
   }
   agents: {
     lead: string
-    items: ReadonlyArray<{ key: string; body: string }>
+    items: ReadonlyArray<{
+      key: string
+      body: string
+      link?: { label: string; href: string }
+    }>
   }
   experience: {
     jobs: Record<JobId, JobCopy>
